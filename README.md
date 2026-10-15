@@ -12,9 +12,9 @@ Tambahkan screenshot dashboard utama pada bagian ini agar pengunjung GitHub dapa
 
 Contoh jika nama file screenshot adalah `dashboard.png`:
 
-`![StockWise Dashboard](docs/screenshots/dashboard.png)`
+`![StockWise Dashboard](docs/screenshot/dashboard.png)`
 
-Lihat folder [docs/screenshots](docs/screenshots/) untuk dokumentasi visual aplikasi.
+Lihat folder [docs/screenshots](docs/screenshot/) untuk dokumentasi visual aplikasi.
 
 ## Fitur Utama
 
