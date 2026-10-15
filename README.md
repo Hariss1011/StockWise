@@ -64,6 +64,12 @@ Pastikan perangkat telah memiliki:
 
 Versi dependency yang tepat dapat diperiksa melalui `composer.json` dan `composer.lock`.
 
+## Entity Relationship Diagram (ERD)
+
+ERD StockWise menggambarkan hubungan antara pengguna, aktivitas sistem, kategori, supplier, produk, dan transaksi persediaan.
+
+Diagram lengkap dapat dilihat pada [docs/erd.md](docs/erd.md).
+
 ## Instalasi dan Menjalankan Aplikasi
 
 ### 1. Clone repository
