@@ -1,6 +1,6 @@
 # Entity Relationship Diagram (ERD) — StockWise
 
-Diagram hubungan tabel utama pada sistem manajemen stok barang StockWise.
+ERD ini menggambarkan struktur tabel utama dan hubungan antarentitas pada aplikasi manajemen stok StockWise.
 
 ```mermaid
 erDiagram
@@ -77,21 +77,35 @@ erDiagram
     STOCK_INS {
         bigint id PK
         bigint product_id FK
+        varchar reference_number
         integer quantity
+        decimal unit_cost
         date transaction_date
+        text notes
+        timestamp created_at
+        timestamp updated_at
     }
 
     STOCK_OUTS {
         bigint id PK
         bigint product_id FK
+        varchar reference_number
         integer quantity
+        varchar recipient
         date transaction_date
+        text notes
+        timestamp created_at
+        timestamp updated_at
     }
 
     STOCK_ADJUSTMENTS {
         bigint id PK
         bigint product_id FK
         integer quantity_change
+        varchar reason
         date adjustment_date
+        text notes
+        timestamp created_at
+        timestamp updated_at
     }
 ```
