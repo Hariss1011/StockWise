@@ -1,103 +1,96 @@
 # StockWise — Inventory Management System
 
-**StockWise** adalah aplikasi manajemen persediaan barang berbasis web yang dikembangkan menggunakan Laravel dan MySQL. Aplikasi ini membantu pengguna mengelola data produk, mencatat pergerakan stok, memantau persediaan minimum, serta menghasilkan laporan inventaris berdasarkan periode tertentu.
+Aplikasi manajemen persediaan barang berbasis web yang dibangun menggunakan **Laravel, PHP, dan MySQL** untuk membantu pengelolaan data produk, pencatatan transaksi stok, pemantauan persediaan, serta penyusunan laporan inventaris.
 
-Proyek ini dikembangkan sebagai portofolio untuk menunjukkan kemampuan dalam **pengembangan aplikasi web, perancangan basis data relasional, pengolahan data, validasi input, dan penyusunan laporan**.
+StockWise dikembangkan sebagai proyek portofolio yang menggabungkan pengembangan aplikasi web, perancangan basis data relasional, validasi data, dan pengolahan laporan.
 
 ## Preview Aplikasi
 
-<!-- Sesuaikan nama file dengan screenshot yang tersedia di folder docs/screenshots -->
+Dashboard StockWise menyajikan ringkasan informasi persediaan untuk membantu pengguna memantau kondisi stok barang.
 
-Tambahkan screenshot dashboard utama pada bagian ini agar pengunjung GitHub dapat langsung melihat tampilan aplikasi.
+![StockWise Dashboard](docs/screenshot/dashboard.png)
 
-Contoh jika nama file screenshot adalah `dashboard.png`:
-
-`![StockWise Dashboard](docs/screenshot/dashboard.png)`
-
-Lihat folder [docs/screenshot](docs/screenshot/) untuk dokumentasi visual aplikasi.
+Dokumentasi visual lainnya tersedia di [folder screenshot aplikasi](docs/screenshot/).
 
 ## Fitur Utama
 
-### 1. Dashboard
+### Dashboard
 
 - Menampilkan ringkasan data produk dan kondisi persediaan.
 - Memantau produk yang mencapai atau berada di bawah batas stok minimum.
 
-### 2. Manajemen Data Master
+### Manajemen Data Master
 
-- Mengelola data produk dengan fitur tambah, lihat, edit, dan hapus.
+- Mengelola data produk dengan fitur tambah, lihat, ubah, dan hapus.
 - Mengelola kategori dan supplier.
-- Menyimpan informasi SKU, satuan, harga beli, harga jual, stok awal, dan stok minimum.
-- Mengimpor data produk dari Excel menggunakan template yang disediakan.
+- Mencatat SKU, satuan, harga beli, harga jual, stok awal, dan stok minimum.
+- Mengimpor data produk dari file Excel menggunakan template yang tersedia.
 
-### 3. Manajemen Transaksi Stok
+### Transaksi Persediaan
 
-- **Stock In:** mencatat barang masuk.
-- **Stock Out:** mencatat barang keluar beserta informasi penerima.
-- **Stock Adjustment:** mencatat penyesuaian stok dan alasannya.
+- **Stock In:** pencatatan barang masuk.
+- **Stock Out:** pencatatan barang keluar beserta informasi penerima.
+- **Stock Adjustment:** penyesuaian stok berdasarkan kondisi aktual dan alasan penyesuaian.
 - Menghitung stok berdasarkan stok awal dan riwayat transaksi.
-- Mencegah transaksi barang keluar yang menyebabkan stok menjadi negatif.
+- Memvalidasi transaksi barang keluar untuk mencegah stok negatif.
 
-### 4. Laporan dan Pengolahan Data
+### Laporan dan Pengolahan Data
 
-- Menampilkan laporan stok barang dan transaksi persediaan.
-- Menyajikan kondisi stok berdasarkan tanggal historis yang dipilih.
-- Menyediakan filter untuk memudahkan pencarian dan analisis data.
-- Mengekspor laporan stok, transaksi, dan ringkasan aktivitas ke CSV.
-- Mengimpor produk dari Excel dengan validasi data, termasuk pemeriksaan SKU duplikat, kategori, supplier, dan format nilai.
+- Laporan stok barang dan transaksi persediaan.
+- Laporan stok berdasarkan tanggal historis yang dipilih.
+- Filter data untuk mempermudah pencarian dan analisis.
+- Ekspor laporan stok, transaksi, dan ringkasan aktivitas ke format CSV.
+- Impor produk dari Excel dengan validasi SKU duplikat, kategori, supplier, dan format nilai.
 
-### 5. Autentikasi dan Pengelolaan Pengguna
+### Autentikasi dan Pengelolaan Pengguna
 
-- Menyediakan fitur login dan logout.
-- Menerapkan pembagian hak akses Admin dan Staff.
-- Menyediakan pengelolaan pengguna untuk Admin.
-- Mencatat aktivitas sistem melalui fitur _activity logs_ yang dapat diakses Admin.
+- Fitur login dan logout.
+- Pembagian hak akses Admin dan Staff.
+- Pengelolaan akun pengguna oleh Admin.
+- Pencatatan aktivitas sistem melalui fitur _activity logs_.
 
-## Teknologi yang Digunakan
+## Teknologi
 
-| Teknologi          | Kegunaan                             |
-| ------------------ | ------------------------------------ |
-| PHP                | Bahasa pemrograman backend           |
-| Laravel            | Framework aplikasi web               |
-| Blade              | Template engine untuk antarmuka      |
-| Tailwind CSS       | Styling dan desain antarmuka         |
-| MySQL              | Sistem manajemen basis data          |
-| Laravel Excel      | Pemrosesan file Excel                |
-| PhpSpreadsheet     | Pengolahan spreadsheet               |
-| Git & GitHub       | Version control dan pengelolaan kode |
-| Laragon            | Lingkungan pengembangan lokal        |
-| Visual Studio Code | Editor kode                          |
+| Teknologi      | Penggunaan                           |
+| -------------- | ------------------------------------ |
+| PHP            | Bahasa pemrograman backend           |
+| Laravel        | Framework aplikasi web               |
+| Blade          | Template engine                      |
+| Tailwind CSS   | Styling antarmuka                    |
+| MySQL          | Basis data relasional                |
+| Laravel Excel  | Impor dan pemrosesan file Excel      |
+| PhpSpreadsheet | Pemrosesan spreadsheet               |
+| Git & GitHub   | Version control dan pengelolaan kode |
+| Laragon        | Lingkungan pengembangan lokal        |
 
-## Arsitektur dan Struktur Data
+## Struktur Basis Data
 
-StockWise memisahkan data master, transaksi persediaan, dan aktivitas sistem ke dalam tabel-tabel yang berbeda. Pendekatan ini membantu menjaga struktur data tetap terorganisasi serta mempermudah pengembangan fitur laporan dan perhitungan stok.
+StockWise memisahkan data master, transaksi persediaan, dan aktivitas sistem untuk menjaga pengelolaan data tetap terstruktur serta mendukung perhitungan stok dan pembuatan laporan.
 
-| Tabel               | Fungsi                           |
+| Tabel               | Deskripsi                        |
 | ------------------- | -------------------------------- |
 | `users`             | Data pengguna dan hak akses      |
-| `categories`        | Data kategori produk             |
+| `categories`        | Kategori produk                  |
 | `suppliers`         | Data pemasok                     |
 | `products`          | Data master produk dan stok awal |
-| `stock_ins`         | Riwayat transaksi barang masuk   |
-| `stock_outs`        | Riwayat transaksi barang keluar  |
+| `stock_ins`         | Riwayat barang masuk             |
+| `stock_outs`        | Riwayat barang keluar            |
 | `stock_adjustments` | Riwayat penyesuaian stok         |
 | `activity_logs`     | Riwayat aktivitas sistem         |
 
-Dokumentasi hubungan antartabel dapat dilihat pada [Entity Relationship Diagram (ERD)](docs/erd.md).
+Diagram hubungan antartabel dapat dilihat pada [Entity Relationship Diagram (ERD)](docs/erd.md).
 
-## Persyaratan Sistem
+## Instalasi
 
-Sebelum menjalankan aplikasi, pastikan perangkat telah memiliki:
+### Persyaratan
 
-- PHP dengan versi yang sesuai dengan dependency proyek.
+Pastikan perangkat telah memiliki:
+
+- PHP dan ekstensi yang dibutuhkan oleh dependency proyek.
 - Composer.
 - MySQL atau MariaDB.
 - Node.js dan npm.
 - Git.
-
-Versi dependency yang digunakan dapat diperiksa melalui `composer.json`, `composer.lock`, dan `package.json`.
-
-## Instalasi dan Menjalankan Aplikasi
 
 ### 1. Clone repository
 
@@ -106,7 +99,7 @@ git clone https://github.com/Hariss1011/StockWise.git
 cd StockWise
 ```
 
-### 2. Instal dependency PHP
+### 2. Instal dependency
 
 ```bash
 composer install
@@ -114,25 +107,25 @@ composer install
 
 ### 3. Konfigurasikan environment
 
-Salin file `.env.example` menjadi `.env`.
+Salin `.env.example` menjadi `.env`.
 
-Untuk Windows PowerShell:
+Windows PowerShell:
 
 ```powershell
 Copy-Item .env.example .env
 ```
 
-Kemudian buat application key:
+Buat application key:
 
 ```bash
 php artisan key:generate
 ```
 
-### 4. Siapkan database
+### 4. Konfigurasikan database
 
-Buat database baru di MySQL, misalnya dengan nama `stockwise`. Sesuaikan konfigurasi database pada file `.env` dengan lingkungan lokal yang digunakan.
+Buat database MySQL dengan nama `stockwise`, kemudian sesuaikan konfigurasi pada file `.env`.
 
-Contoh konfigurasi:
+Contoh konfigurasi lokal:
 
 ```env
 APP_NAME=StockWise
@@ -146,7 +139,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Sesuaikan nama database, username, password, dan konfigurasi lainnya jika berbeda dari contoh di atas.
+Sesuaikan nama database dan kredensial dengan konfigurasi lingkungan lokal.
 
 ### 5. Jalankan migration dan seeder
 
@@ -154,9 +147,7 @@ Sesuaikan nama database, username, password, dan konfigurasi lainnya jika berbed
 php artisan migrate --seed
 ```
 
-Perintah tersebut menjalankan migration dan seeder yang tersedia untuk menyiapkan struktur database serta data awal aplikasi.
-
-**Catatan:** Jalankan seeder hanya pada database pengembangan atau database kosong yang memang disiapkan untuk demonstrasi. Periksa konfigurasi seeder terlebih dahulu sebelum menggunakannya pada database yang berisi data penting.
+Perintah ini menyiapkan struktur tabel dan data awal berdasarkan migration serta seeder yang tersedia. Gunakan seeder pada database pengembangan yang sesuai, dan periksa isinya sebelum menjalankannya pada database yang telah memiliki data.
 
 ### 6. Instal dan build aset frontend
 
@@ -171,40 +162,35 @@ npm run build
 php artisan serve
 ```
 
-Buka aplikasi melalui browser:
+Akses aplikasi melalui:
 
 http://127.0.0.1:8000
 
-Gunakan akun yang telah disiapkan pada lingkungan pengembangan. Jika kredensial demo belum didokumentasikan, periksa konfigurasi seeder atau buat akun melalui mekanisme yang tersedia di aplikasi.
+Akun untuk masuk mengikuti konfigurasi pengguna yang tersedia pada lingkungan pengembangan.
 
 ## Validasi dan Pengujian
 
-Validasi dan pengujian dilakukan untuk memastikan data yang diproses sesuai dengan aturan aplikasi.
-
-Skenario pengujian impor produk meliputi:
+Pengujian impor produk mencakup skenario berikut:
 
 - SKU duplikat.
-- Kategori yang tidak ditemukan.
-- Supplier yang tidak ditemukan.
+- Kategori atau supplier yang tidak ditemukan.
 - Harga dengan format tidak valid.
 - Nama produk kosong.
-- Data produk yang valid.
+- Data produk valid.
 - Penolakan impor ketika terdapat data tidak valid.
 
-Skenario tersebut telah diuji selama pengembangan. Pengujian fitur lain dilakukan sesuai skenario yang diterapkan pada masing-masing modul.
+Skenario tersebut telah diuji selama proses pengembangan. Fitur lainnya diuji sesuai kebutuhan dan aturan yang diterapkan pada masing-masing modul.
 
 ## Data Demonstrasi
 
-Data contoh digunakan untuk menguji fitur dan mendemonstrasikan alur kerja aplikasi. Data tersebut ditujukan untuk kebutuhan pengembangan dan portofolio, bukan untuk merepresentasikan transaksi perusahaan nyata.
+Data contoh digunakan untuk pengujian fitur dan demonstrasi alur kerja StockWise. Data tersebut ditujukan untuk keperluan pengembangan dan portofolio, bukan sebagai representasi transaksi perusahaan nyata.
 
-## Pengembangan Selanjutnya
+## Rencana Pengembangan
 
-Beberapa peluang pengembangan StockWise meliputi:
-
-- Penyempurnaan dokumentasi hasil pengujian.
-- Penambahan visualisasi tren pergerakan stok.
-- Pengembangan analisis produk dengan perputaran stok tinggi atau rendah.
-- Penyediaan demo aplikasi secara daring.
+- Menyempurnakan dokumentasi hasil pengujian.
+- Menambahkan visualisasi tren pergerakan stok.
+- Mengembangkan analisis produk berdasarkan tingkat perputaran persediaan.
+- Menyediakan demo aplikasi yang dapat diakses secara daring.
 
 ## Author
 
