@@ -14,7 +14,7 @@ Contoh jika nama file screenshot adalah `dashboard.png`:
 
 `![StockWise Dashboard](docs/screenshot/dashboard.png)`
 
-Lihat folder [docs/screenshots](docs/screenshot/) untuk dokumentasi visual aplikasi.
+Lihat folder [docs/screenshot](docs/screenshot/) untuk dokumentasi visual aplikasi.
 
 ## Fitur Utama
 
