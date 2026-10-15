@@ -1,10 +1,15 @@
+# Entity Relationship Diagram (ERD) — StockWise
+
+Diagram hubungan tabel utama pada sistem manajemen stok barang StockWise.
+
+```mermaid
 erDiagram
-USERS o|--o{ ACTIVITY_LOGS : performs
-CATEGORIES ||--o{ PRODUCTS : categorizes
-SUPPLIERS o|--o{ PRODUCTS : supplies
-PRODUCTS ||--o{ STOCK_INS : receives
-PRODUCTS ||--o{ STOCK_OUTS : issues
-PRODUCTS ||--o{ STOCK_ADJUSTMENTS : adjusts
+    USERS o|--o{ ACTIVITY_LOGS : performs
+    CATEGORIES ||--o{ PRODUCTS : categorizes
+    SUPPLIERS o|--o{ PRODUCTS : supplies
+    PRODUCTS ||--o{ STOCK_INS : receives
+    PRODUCTS ||--o{ STOCK_OUTS : issues
+    PRODUCTS ||--o{ STOCK_ADJUSTMENTS : adjusts
 
     USERS {
         bigint id PK
@@ -89,3 +94,4 @@ PRODUCTS ||--o{ STOCK_ADJUSTMENTS : adjusts
         integer quantity_change
         date adjustment_date
     }
+```
